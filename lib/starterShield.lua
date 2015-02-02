@@ -131,6 +131,16 @@ Button.when = function(button, transition, action)
 end
 
 Button.wait = function(button)
+-- Wait on a button press
+--   suspend execution of the filament
+--   resume and return when transition occurs
+-- DEC: this doesn't quite work.  Return to it
+   local pin = Button.pins[button]
+   cord.new(function()
+	       cord.await(storm.io.watch_single,
+			  storm.io.FALLING, 
+			  storm.io[pin])
+	    end)
 end
 
 ----------------------------------------------
