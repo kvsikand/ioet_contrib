@@ -123,7 +123,7 @@ end
 -------------------
 
 Button.whenever = function(button, transition, action)
-	return storm.io.watch_all(transition, storm.io[Button.pinss[button]], action)
+	return storm.io.watch_all(transition, storm.io[Button.pins[button]], action)
 end
 
 Button.when = function(button, transition, action)
